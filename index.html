@@ -82,8 +82,8 @@
                         </div>
                         <div id="buttonsDiv">
                             <input type="file" id="imageLoader" name="imageLoader" style="color: #ffffff">
-                            <button id="saveButton" onclick="saveCanvas()">Save!
-                            </button>
+                            
+                            <button id="download">Download</button>
                         </div>
                     </div>
                     <script> var imageLoader = document.getElementById('imageLoader');
@@ -185,24 +185,31 @@
                             }
                             reader.readAsDataURL(e.target.files[0]);
                         }
+                        const download = document.getElementById('download');
                         
-                        saveCanvas = function() {
-                            canvas.toBlob((blob) => {
-                            saveBlob(blob, `fungiblePFP.png`);
-                            });
-                        }
+                        download.addEventListener('click', function (e) {
+                        const link = document.createElement('a');
+                        link.download = 'fungiblePNG.png';
+                        link.href = canvas.toDataURL();
+                        link.click();
+                        link.delete;
+                        });
                         
-                        const saveBlob = (function() {
-                            const a = document.createElement('a');
-                            document.body.appendChild(a);
-                            a.style.display = 'none';
-                            return function saveData(blob, fileName) {
-                                const url = window.URL.createObjectURL(blob);
-                                a.href = url;
-                                a.download = fileName;
-                                a.click();
-                            };
-                        }()); 
+                        
+                       // const saveBlob = (function() {
+                        //    const a = document.createElement('a');
+                        //    document.body.appendChild(a);
+                         //   a.style.display = 'none';
+                         //   return function saveData(blob, fileName) {
+                         //       const url = window.URL.createObjectURL(blob);
+                          //      a.href = url;
+                           //     a.download = fileName;
+                            //    a.click();
+                           // };
+                      //  }()); 
+                      // Setup download button event listener
+// Setup download button event listener
+                        
                     </script>
                     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LJN8YR4E7G">
 
