@@ -114,7 +114,7 @@
                         demoImg = new Image();  demoImg.crossOrigin = "Anonymous";
                         demoImg.onload = function() {
                         coverImg.onload = function() {
-                        createImageBitmap(demoImg, {resizeWidth: 1000, resizeHeight: 1000, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                        createImageBitmap(demoImg, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                         };
                         };
                         
@@ -179,7 +179,7 @@
                             reader.onload = function(event){
                                 var img = new Image();
                                 img.onload = function(){
-                                    createImageBitmap(img, {resizeWidth: 1000, resizeHeight: 1000, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                 }
                                 img.src = event.target.result;
                             }
@@ -221,7 +221,7 @@
                         
                         gtag('config', 'G-LJN8YR4E7G');
                     </script>
-                    </div>
+                </div>
                     <h2 id="text04" style="color: #ffffff">
                         <sub><sup>note: if using iOS, click save &gt; view &gt; long press to save!</sup></sub><br>
                     </h2><br>
