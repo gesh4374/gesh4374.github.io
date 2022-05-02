@@ -52,20 +52,19 @@
                 <h2 id="text02"  style="color: #ffffff">
                     
                     <form  method="get">
-                        <!-- <label for="chimp">Chimp ID:</label>
-                        <input type="text" id="chimp" name="chimp" maxlength="4" size="4" required><br>-->
+                        <label for="chimp">Chimp ID:</label>
+                        <input type="text" id="chimp" name="chimp" maxlength="4" size="4" required><br>
                         <label for="format">Select Format:</label>
                         <select name="format" id="format">
                             <option value="1">----Select----</option>
-                            <option value="Desktop">Desktop</option>
                             <option value="Phone">Phone</option>
-                            <option value="PFP">PFP</option>
                          </select><br>
                          <label for="bckg">Select Background:</label>
                         <select name="bckg" id="bckg">
                             <option value="2">----Select----</option>
-                            <option value="Cabana">Cabana</option>
-                            <option value="Shogunate">Shogunate</option>
+                            <option value="Nature">Nature</option>
+                            <option value="Framed">Framed</option>
+                            <option value="Moon">Moon</option>
                          </select><br>
                          <input type="submit" value="Submit" />
                     </form>    
@@ -109,18 +108,33 @@
                         var chimpN = getUserData('chimp');
                         var formatN = getUserData('format');
                         var bckgN = getUserData('bckg');
-
+                       
                         coverImg = new Image(); coverImg.crossOrigin = "Anonymous";
                         demoImg = new Image();  demoImg.crossOrigin = "Anonymous";
+                        moonImg = new Image(); moonImg.crossOrigin = "Anonymous";
                         demoImg.onload = function() {
                         coverImg.onload = function() {
-                        createImageBitmap(demoImg, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                        };
-                        };
-                        
+                            switch (bckgN) {
+                                    case 'Nature' :
+                                        createImageBitmap(demoImg, {resizeWidth: 390, resizeHeight: 390, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Framed' :
+                                        createImageBitmap(demoImg, {resizeWidth: 490, resizeHeight: 490, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Moon' :
+                                        createImageBitmap(demoImg, {resizeWidth: 190, resizeHeight: 190, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    default:
+                                        createImageBitmap(demoImg, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                 }
 
-                        demoImg.src = 'https://i.imgur.com/Krz6g6i.png';
-                        
+                        };
+                        };
+                       
+                        demoImg.src = 'https://arweave.net/KOnXn6F7zRoLrJYu-SIrY9wJZATcQG2fYnXwG5xMBQA/'+chimpN+'.png';
+                        //demoImg.src = 'https://i.imgur.com/'+'Krz6g6i'+'.png';
+                        moonImg.src ='https://i.imgur.com/n83vzk0.png';
                         switch (formatN) {
                             case 'PFP':
                                 canvas.width = '1200';
@@ -160,6 +174,16 @@
                                     case 'Shogunate':
                                         coverImg.src = 'https://i.imgur.com/Bci5HX3.jpg';
                                     break;
+                                    case 'Nature' :
+                                        coverImg.src = 'https://i.imgur.com/6Kj0L4f.png';
+                                    break;
+                                    case 'Framed' :
+                                        coverImg.src = 'https://i.imgur.com/HxNfiOY.png';
+                                    break;
+                                    case 'Moon' :
+                                        coverImg.src = 'https://i.imgur.com/ph3Ohc2.png';
+                                    break;
+                                    
                                     default:
                                         break;
                                 }
@@ -170,16 +194,42 @@
                         
                         
                         drawFungiblePFP = function(img) {
-                            
-                        ctx.drawImage(coverImg, 0, 0, canvas.width, canvas.height);
-                        ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/1);
+                                ctx.drawImage(coverImg, 0, 0, canvas.width, canvas.height);
+                                switch (bckgN) {
+                                    case 'Nature' :
+                                        ctx.drawImage(img, (canvas.width-img.width)/1.9, (canvas.height-img.height)/1.49);
+                                    break;
+                                    case 'Framed' : 
+                                        ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2.18);
+                                    break;
+                                    case 'Moon' : 
+                                        ctx.drawImage(img, (canvas.width-img.width)/1.83, (canvas.height-img.height)/1.93);
+                                        ctx.drawImage(moonImg, (canvas.width-img.width)/30, (canvas.height-img.height)/30);
+                                    break;
+                                    default:
+                                        ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/1);
+                                    break;
+                                 }
                         }
                         function handleImage(e) {
                             var reader = new FileReader();
                             reader.onload = function(event){
                                 var img = new Image();
                                 img.onload = function(){
-                                    createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    switch (bckgN) {
+                                    case 'Nature' :
+                                        createImageBitmap(img, {resizeWidth: 390, resizeHeight: 390, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Framed' :
+                                        createImageBitmap(img, {resizeWidth: 390, resizeHeight: 390, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Moon' :
+                                        createImageBitmap(img, {resizeWidth: 290, resizeHeight: 290, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    default:
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                 }
                                 }
                                 img.src = event.target.result;
                             }
@@ -226,7 +276,7 @@
                         <sub><sup>note: if using iOS, click save &gt; view &gt; long press to save!</sup></sub><br>
                     </h2><br>
                     <h2 id="text07" style="color: #ffffff">
-                        Chimp: <span id="chimpN" style="font-size: 1.5rem"> </span><br>Background: <span id="bckgN"style="font-size: 1.5rem"></span><br>Format: <span id="formatN"style="font-size: 1.5rem"></span>
+                        Chimp ID: <span id="chimpN" style="font-size: 1.5rem"> </span><br>Background: <span id="bckgN"style="font-size: 1.5rem"></span><br>Format: <span id="formatN"style="font-size: 1.5rem"></span>
                     </h2><br>
                         <script>
                             document.getElementById("chimpN").innerHTML = chimpN;
