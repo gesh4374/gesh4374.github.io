@@ -114,8 +114,7 @@
             "Nature": [],
             "Framed": [],
             "Moon": [],
-            "Banana": [],
-            "Japan": []
+            "Banana": []
         },
         "Card": {
             "Birthday": []
@@ -210,7 +209,7 @@
                         var chimpN = getUserData('chimp');
                         var formatN = getUserData('format');
                         var bckgN = getUserData('bckg');
-
+                       
                         coverImg = new Image(); coverImg.crossOrigin = "Anonymous";
                         demoImg = new Image();  demoImg.crossOrigin = "Anonymous";
                         moonImg = new Image(); moonImg.crossOrigin = "Anonymous";
@@ -229,9 +228,6 @@
                                     break;
                                     case 'Banana' :
                                         createImageBitmap(demoImg, {resizeWidth: 380, resizeHeight: 380, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Japan' :
-                                        createImageBitmap(demoImg, {resizeWidth: 400, resizeHeight: 400, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     case 'Birthday' :
                                         createImageBitmap(demoImg, {resizeWidth: 670, resizeHeight: 670, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
@@ -299,9 +295,6 @@
                                     case 'Banana' :
                                         coverImg.src = 'https://i.imgur.com/qP6h93A.png';
                                     break;
-                                    case 'Japan' :
-                                        coverImg.src = 'https://i.imgur.com/aSLysUS.png';
-                                    break;
                                     
                                     default:
                                         break;
@@ -328,9 +321,6 @@
                                     case 'Banana' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
                                     break;
-                                    case 'Japan' : 
-                                        ctx.drawImage(img, 250, 780);
-                                    break;
                                     case 'Birthday' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/4.2);
                                         ctx.drawImage(bdayImg, 0, 0, img.width = 1200,img.height=1200);
@@ -356,10 +346,7 @@
                                         createImageBitmap(img, {resizeWidth: 200, resizeHeight: 200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     case 'Banana' :
-                                        createImageBitmap(img, {resizeWidth: 380, resizeHeight: 380}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Japan' :
-                                        createImageBitmap(img, {resizeWidth: 400, resizeHeight: 400}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        createImageBitmap(img, {resizeWidth: 380, resizeHeight: 380, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     case 'Birthday' :
                                         createImageBitmap(img, {resizeWidth: 680, resizeHeight: 680, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
