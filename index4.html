@@ -118,9 +118,7 @@
             "Japan": []
         },
         "Card": {
-            "Birthday": [],
-            "GM": [],
-            "GN": []
+            "Birthday": []
         }
         
         }
@@ -220,8 +218,6 @@
                         moonImg = new Image(); moonImg.crossOrigin = "Anonymous";
                         bdayImg = new Image(); bdayImg.crossOrigin = "Anonymous";
                         cibImg = new Image(); cibImg.crossOrigin = "Anonymous";
-                        gmImg = new Image(); gmImg.crossOrigin = "Anonymous";
-                        gnImg = new Image(); gnImg.crossOrigin = "Anonymous";
 
                         demoImg.onload = function() {
                         coverImg.onload = function() {
@@ -244,12 +240,6 @@
                                     case 'Birthday' :
                                         createImageBitmap(demoImg, {resizeWidth: 670, resizeHeight: 670, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
-                                    case 'GM' :
-                                        createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'GN' :
-                                        createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
                                     default:
                                         createImageBitmap(demoImg, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
@@ -263,8 +253,6 @@
                         moonImg.src ='https://i.imgur.com/n83vzk0.png';
                         bdayImg.src ='https://i.imgur.com/AiKqNE7.png';
                         cibImg.src = 'https://i.imgur.com/a3Oi1Fw.png';
-                        gmImg.src = 'https://i.imgur.com/Bjh1f1H.png';
-                        gnImg.src = 'https://i.imgur.com/53rx7AI.png';
                         switch (formatN) {
                             case 'PFP':
                                 canvas.width = '1200';
@@ -286,12 +274,6 @@
                                 switch (bckgN) {
                                     case 'Birthday':
                                         coverImg.src = 'https://i.imgur.com/T6MKG0j.png';
-                                    break;
-                                    case 'GM':
-                                        coverImg.src = 'https://i.imgur.com/bnFD7W0.png';
-                                    break;
-                                    case 'GN':
-                                        coverImg.src = 'https://i.imgur.com/HuVea2t.png';
                                     break;
                                     case 'Shogunate':
                                         coverImg.src = 'https://i.imgur.com/UykMZ9d.png';
@@ -388,24 +370,6 @@
                                             break;
                                         }
                                     break;
-                                    case 'GM' : 
-                                        ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
-                                        ctx.drawImage(gmImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                                ctx.drawImage(cibImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
-                                    case 'GN' : 
-                                        ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
-                                        ctx.drawImage(gnImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                                ctx.drawImage(cibImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
                                     default:
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/1);
                                     break;
@@ -434,12 +398,6 @@
                                     break;
                                     case 'Birthday' :
                                         createImageBitmap(img, {resizeWidth: 680, resizeHeight: 680, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'GM' :
-                                        createImageBitmap(img, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'GN' :
-                                        createImageBitmap(img, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     default:
                                         createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
