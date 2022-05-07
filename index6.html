@@ -104,14 +104,7 @@
             input[type=submit]:hover {
                     background-color: #fdc657;
             }
-            img {
-                transition:transform 0.25s ease;
-                }
-
-            img:hover {
-                -webkit-transform:scale(2);
-                transform:scale(2);
-                        }  
+           
     </style>
     <script type="text/javascript" src="chrome-extension://fnnegphlobjdpkhecapkijjdkgcjhkib/inject-script.js" id="one-x-extension" data-extension-id="fnnegphlobjdpkhecapkijjdkgcjhkib"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -262,7 +255,7 @@
                                         createImageBitmap(demoImg, {resizeWidth: 380, resizeHeight: 380, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     case 'Japan' :
-                                        createImageBitmap(demoImg, {resizeWidth: 410, resizeHeight: 410, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        createImageBitmap(demoImg, {resizeWidth: 400, resizeHeight: 400, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     case 'Birthday' :
                                         createImageBitmap(demoImg, {resizeWidth: 670, resizeHeight: 670, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
@@ -395,10 +388,10 @@
                                         }
                                     break;
                                     case 'Japan' : 
-                                        ctx.drawImage(img, 245,775);
+                                        ctx.drawImage(img, 250, 780);
                                         switch (cibN){
                                             case 'on' :
-                                                ctx.drawImage(cibImg, 245,775,img.width,img.height);
+                                                ctx.drawImage(cibImg, 250, 780,img.width,img.height);
                                             break;
                                         }
                                     break;
@@ -453,7 +446,7 @@
                                         createImageBitmap(img, {resizeWidth: 380, resizeHeight: 380}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     case 'Japan' :
-                                        createImageBitmap(img, {resizeWidth: 410, resizeHeight: 410}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        createImageBitmap(img, {resizeWidth: 400, resizeHeight: 400}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     case 'Birthday' :
                                         createImageBitmap(img, {resizeWidth: 680, resizeHeight: 680, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
@@ -529,9 +522,7 @@
                                     <span>to create a poster for your Chimp.</span><br>
                                     <span>Replace image, edit red text and save!</span><br>
                                     <span></span><br>
-                                    <img src="https://i.imgur.com/eap35SZ.png" width="200px"
-                                    height="auto">
-
+                                    <img src="https://i.imgur.com/s1eObwS.png" height="300" width="150" />
                                     <a href="https://www.canva.com/design/DAFABaWQ_gQ/oO096WDbTo41Fa0F5KPrkw/view?utm_content=DAFABaWQ_gQ&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton&mode=preview" class="button n01">
                                          <img src="https://imgur.com/MvjtIjd.png" width="20" ><span class="label" style='margin-left:0.5em'>Create Poster with Canva</span>
                                     </a>
