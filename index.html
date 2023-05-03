@@ -247,6 +247,7 @@
                                 }
                             }
                         }
+                       
                         var chimpN = getUserData('chimp');
                         var formatN = getUserData('format');
                         var bckgN = getUserData('bckg');
@@ -254,6 +255,10 @@
 
                         coverImg = new Image(); coverImg.crossOrigin = "Anonymous";
                         demoImg = new Image();  demoImg.crossOrigin = "Anonymous";
+                        demoImg.addEventListener('load', () => {
+                        // Image loaded, append it to the DOM
+                        //document.body.appendChild();
+                        });
                         moonImg = new Image(); moonImg.crossOrigin = "Anonymous";
                         bdayImg = new Image(); bdayImg.crossOrigin = "Anonymous";
                         cibImg = new Image(); cibImg.crossOrigin = "Anonymous";
@@ -273,77 +278,85 @@
                         greImg = new Image(); greImg.crossOrigin = "Anonymous";
                         leoImg = new Image(); leoImg.crossOrigin = "Anonymous";
 
-                        demoImg.onload = function() {
-                        coverImg.onload = function() {
-                            switch (bckgN) {
-                                    case 'Nature' :
-                                        createImageBitmap(demoImg, {resizeWidth: 390, resizeHeight: 390, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Framed' :
-                                        createImageBitmap(demoImg, {resizeWidth: 490, resizeHeight: 490, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Moon' :
-                                        createImageBitmap(demoImg, {resizeWidth: 200, resizeHeight: 200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Banana' :
-                                        createImageBitmap(demoImg, {resizeWidth: 380, resizeHeight: 380, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Japan' :
-                                        createImageBitmap(demoImg, {resizeWidth: 410, resizeHeight: 410, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Birthday' :
-                                        createImageBitmap(demoImg, {resizeWidth: 670, resizeHeight: 670, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'GM' :
-                                        createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'GN' :
-                                        createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Silverback' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Wooden' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Snow+Monkey' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Brown' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Snub+Nosed' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Purple' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Blue' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Pink' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Black' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Rainbow+Swirl' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Green' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Leopard' :
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    default:
-                                        createImageBitmap(demoImg, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                 }
+                        
+                        
+                            
+                            
+                                demoImg.onload = function() {
+                                switch (bckgN) {
+                                        case 'Nature' :
+                                            createImageBitmap(demoImg, {resizeWidth: 390, resizeHeight: 390, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Framed' :
+                                            createImageBitmap(demoImg, {resizeWidth: 490, resizeHeight: 490, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Moon' :
+                                            createImageBitmap(demoImg, {resizeWidth: 200, resizeHeight: 200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Banana' :
+                                            createImageBitmap(demoImg, {resizeWidth: 380, resizeHeight: 380, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Japan' :
+                                            createImageBitmap(demoImg, {resizeWidth: 410, resizeHeight: 410, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Birthday' :
+                                            createImageBitmap(demoImg, {resizeWidth: 670, resizeHeight: 670, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'GM' :
+                                            createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'GN' :
+                                            createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Silverback' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Wooden' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Snow+Monkey' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Brown' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Snub+Nosed' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Purple' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Blue' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Pink' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Black' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Rainbow+Swirl' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Green' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        case 'Leopard' :
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                        default:
+                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        break;
+                                    }
+                                
+                            
 
+
+
+                            
                         };
-                        };
-                       
+                        
+                        
                         demoImg.src = 'https://arweave.net/KOnXn6F7zRoLrJYu-SIrY9wJZATcQG2fYnXwG5xMBQA/'+chimpN+'.png';
                         //demoImg.src = 'https://i.imgur.com/'+'Krz6g6i'+'.png';
                         moonImg.src ='https://i.imgur.com/n83vzk0.png';
@@ -423,8 +436,9 @@
                                 break;
                             }
                         
-                        
+                            
                         drawFungiblePFP = function(img) {
+                            
                                 ctx.drawImage(coverImg, 0, 0, canvas.width, canvas.height);
                                 switch (bckgN) {
                                     case 'Nature' :
@@ -607,7 +621,10 @@
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/1);
                                     break;
                                  }
+                                
                         }
+                    
+                    
                         function handleImage(e) {
                             var reader = new FileReader();
                             reader.onload = function(event){
