@@ -13,7 +13,7 @@
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="500">
     <meta property="og:image:height" content="500">
-    <meta property="og:url" content="cccwallpaper.site">
+    <meta property="og:url" content="https://cccwallpaper.site">
     <meta property="twitter:card" content="summary_large_image">
     <link rel="canonical" href="cccwallpaper.site">
     <link href="https://fonts.googleapis.com/css?family=Inter:400,400italic,700,700italic" rel="stylesheet" type="text/css">
@@ -128,6 +128,20 @@
             "Birthday": [],
             "GM": [],
             "GN": []
+        },
+        "Mug": {
+            "Silverback": [],
+            "Wooden": [],
+            "Snow Monkey": [],
+            "Brown": [],
+            "Snub Nosed": [],
+            "Purple": [],
+            "Blue": [],
+            "Pink": [],
+            "Black": [],
+            "Rainbow Swirl": [],
+            "Green": [],
+            "Leopard": []
         }
         
         }
@@ -176,7 +190,7 @@
                     <span>Enjoy this Phone wallpaper generator</span><br> <br>
                     <span><sub>1). Input your Chimp ID</a></mark></sub></span><br>
                     <span><sub>2). Select Format</sub></span><br> 
-                    <span><sub>3). Select Background</sub></span><br> 
+                    <span><sub>3). Select Style</sub></span><br> 
                     <span><sub>4.) Press "Submit"</sub></span><br> 
                     <span><sub>5.) Upload custom image if desired</sub></span><br> 
                     <span><sub>6.) Click "Download"</sub></span><br> <br>
@@ -188,7 +202,7 @@
                     Format: <select name="format" id="format">
                                  <option value="" selected="selected">Select format</option>
                             </select><br>
-                    Background: <select name="bckg" id="bckg">
+                    Style: <select name="bckg" id="bckg">
                                  <option value="" selected="selected">Select format first</option>
                             </select>
                             CiB&#128526;?  <input type="checkbox" name="cib" id="cib">  <br>     
@@ -245,6 +259,19 @@
                         cibImg = new Image(); cibImg.crossOrigin = "Anonymous";
                         gmImg = new Image(); gmImg.crossOrigin = "Anonymous";
                         gnImg = new Image(); gnImg.crossOrigin = "Anonymous";
+                        //Hands
+                        silImg = new Image(); silImg.crossOrigin = "Anonymous";
+                        wooImg = new Image(); wooImg.crossOrigin = "Anonymous";
+                        snoImg = new Image(); snoImg.crossOrigin = "Anonymous";
+                        broImg = new Image(); broImg.crossOrigin = "Anonymous";
+                        snuImg = new Image(); snuImg.crossOrigin = "Anonymous";
+                        purImg = new Image(); purImg.crossOrigin = "Anonymous";
+                        bluImg = new Image(); bluImg.crossOrigin = "Anonymous";
+                        pinImg = new Image(); pinImg.crossOrigin = "Anonymous";
+                        blaImg = new Image(); blaImg.crossOrigin = "Anonymous";
+                        raiImg = new Image(); raiImg.crossOrigin = "Anonymous";
+                        greImg = new Image(); greImg.crossOrigin = "Anonymous";
+                        leoImg = new Image(); leoImg.crossOrigin = "Anonymous";
 
                         demoImg.onload = function() {
                         coverImg.onload = function() {
@@ -273,6 +300,42 @@
                                     case 'GN' :
                                         createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
+                                    case 'Silverback' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Wooden' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Snow+Monkey' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Brown' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Snub+Nosed' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Purple' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Blue' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Pink' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Black' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Rainbow+Swirl' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Green' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Leopard' :
+                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
                                     default:
                                         createImageBitmap(demoImg, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
@@ -288,20 +351,23 @@
                         cibImg.src = 'https://i.imgur.com/a3Oi1Fw.png';
                         gmImg.src = 'https://i.imgur.com/Bjh1f1H.png';
                         gnImg.src = 'https://i.imgur.com/53rx7AI.png';
+                        silImg.src = 'https://i.imgur.com/KX35fET.png';
+                        wooImg.src = 'https://i.imgur.com/ofRWnCa.png';
+                        snoImg.src = 'https://i.imgur.com/MQOLibU.png';
+                        broImg.src = 'https://i.imgur.com/YBRaxEq.png';
+                        snuImg.src = 'https://i.imgur.com/FKfJTQB.png';
+                        purImg.src = 'https://i.imgur.com/DPKllCK.png';
+                        bluImg.src = 'https://i.imgur.com/CF2M6yC.png';
+                        pinImg.src = 'https://i.imgur.com/feMw4J9.png';
+                        blaImg.src = 'https://i.imgur.com/JTkHZR3.png';
+                        raiImg.src = 'https://i.imgur.com/ZLJHOsR.png';
+                        greImg.src = 'https://i.imgur.com/P5cxs8a.png';
+                        leoImg.src = 'https://i.imgur.com/A8CkVHi.png';
                         switch (formatN) {
-                            case 'PFP':
+                            case 'Mug':
                                 canvas.width = '1200';
                                 canvas.height = '1200';
-                                switch (bckgN) {
-                                    case 'Cabana':
-                                        coverImg.src = 'https://i.imgur.com/bKOlH7K.png';
-                                    break;
-                                    case 'Shogunate':
-                                        coverImg.src = 'https://i.imgur.com/dvTIlmw.jpg';
-                                    break;
-                                    default:
-                                        break;
-                                }
+                                
                                 break;
                             case 'Card':
                                 canvas.width = '1200';
@@ -429,6 +495,114 @@
                                             break;
                                         }
                                     break;
+                                    case 'Silverback' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(silImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Wooden' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(wooImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Snow+Monkey' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(snoImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Brown' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(broImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Snub+Nosed' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(snuImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Purple' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(purImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Blue' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(bluImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Pink' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(pinImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Black' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(blaImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Rainbow+Swirl' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(raiImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Green' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(greImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
+                                    case 'Leopard' : 
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        ctx.drawImage(leoImg, 0, 0, img.width = 1200,img.height=1200);
+                                        switch (cibN){
+                                            case 'on' :
+                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                    break;
                                     default:
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/1);
                                     break;
@@ -463,6 +637,42 @@
                                     break;
                                     case 'GN' :
                                         createImageBitmap(img, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Silverback' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Wooden' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Snow+Monkey' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Brown' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Snub+Nosed' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Purple' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Blue' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Pink' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Black' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Rainbow+Swirl' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Green' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    break;
+                                    case 'Leopard' :
+                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     default:
                                         createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
@@ -514,7 +724,7 @@
                     <h2 id="text07" style="color: #fdc657">
                         <br>
                         
-                        <span style="color: #ffffff">Chimp ID: </span> <span id="chimpN" style="font-size: 1.5rem"> </span><br> <span style="color: #ffffff">Format:</span> <span id="formatN"style="font-size: 1.5rem"></span><br><span style="color: #ffffff">Background:</span>  <span id="bckgN"style="font-size: 1.5rem"></span><br>
+                        <span style="color: #ffffff">Chimp ID: </span> <span id="chimpN" style="font-size: 1.5rem"> </span><br> <span style="color: #ffffff">Format:</span> <span id="formatN"style="font-size: 1.5rem"></span><br><span style="color: #ffffff">Style:</span>  <span id="bckgN"style="font-size: 1.5rem"></span><br>
                     </h2>
                         <script>
                             document.getElementById("chimpN").innerHTML = chimpN;
