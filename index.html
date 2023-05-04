@@ -130,26 +130,18 @@
             "GN": []
         },
         "Mug": {
-            "Solid Gold": [],
-            "Jelly Grape": [],
-            "Cyborg": [],
-            "Rainbow Swirl ": [],
-            "Jelly Blood": [],
-            "Jelly Aqua": [],
-            "Camouflage": [],
-            "Wooden": [],
-            "Tiger": [],
-            "Brass": [],
-            "Leopard": [],
             "Silverback": [],
-            "Snub Nosed": [],
+            "Wooden": [],
             "Snow Monkey": [],
+            "Brown": [],
+            "Snub Nosed": [],
             "Purple": [],
-            "Pink": [],
-            "Green": [],
             "Blue": [],
+            "Pink": [],
             "Black": [],
-            "Brown": []
+            "Rainbow Swirl": [],
+            "Green": [],
+            "Leopard": []
         }
         
         }
@@ -285,14 +277,6 @@
                         raiImg = new Image(); raiImg.crossOrigin = "Anonymous";
                         greImg = new Image(); greImg.crossOrigin = "Anonymous";
                         leoImg = new Image(); leoImg.crossOrigin = "Anonymous";
-                        solImg = new Image(); solImg.crossOrigin = "Anonymous";
-                        graImg = new Image(); graImg.crossOrigin = "Anonymous";
-                        cybImg = new Image(); cybImg.crossOrigin = "Anonymous";
-                        aquImg = new Image(); aquImg.crossOrigin = "Anonymous";
-                        bloImg = new Image(); bloImg.crossOrigin = "Anonymous";
-                        camImg = new Image(); camImg.crossOrigin = "Anonymous";
-                        tigImg = new Image(); tigImg.crossOrigin = "Anonymous";
-                        braImg = new Image(); braImg.crossOrigin = "Anonymous";
 
                         
                         
@@ -360,30 +344,6 @@
                                         case 'Leopard' :
                                             createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Solid+Gold' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Jelly+Grape' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Cyborg' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Jelly+Aqua' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Camouflage' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Tiger' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Brass' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Jelly+Blood' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
                                         default:
                                             createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
@@ -416,15 +376,6 @@
                         raiImg.src = 'https://i.imgur.com/ZLJHOsR.png';
                         greImg.src = 'https://i.imgur.com/P5cxs8a.png';
                         leoImg.src = 'https://i.imgur.com/A8CkVHi.png';
-                        solImg.src = 'https://i.imgur.com/guSOban.png'; 
-                        graImg.src = 'https://i.imgur.com/X26Yg75.png';
-                        cybImg.src = 'https://i.imgur.com/Sovo1Wc.png'; 
-                        aquImg.src = 'https://i.imgur.com/bm1aHDY.png'; 
-                        bloImg.src = 'https://i.imgur.com/cnGBrRw.png'; 
-                        camImg.src = 'https://i.imgur.com/6e5e6JZ.png'; 
-                        tigImg.src = 'https://i.imgur.com/Tf7udHR.png'; 
-                        braImg.src = 'https://i.imgur.com/gnMPbBO.png';
-
                         switch (formatN) {
                             case 'Mug':
                                 canvas.width = '1200';
@@ -666,78 +617,6 @@
                                             break;
                                         }
                                     break;
-                                    case 'Solid+Gold' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(solImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
-                                    case 'Jelly+Grape' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(graImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
-                                    case 'Cyborg' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(cybImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
-                                    case 'Jelly+Blood' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(bloImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
-                                    case 'Jelly+Aqua' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(aquImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
-                                    case 'Camouflage' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(camImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
-                                    case 'Tiger' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(tigImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
-                                    case 'Brass' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(braImg, 0, 0, img.width = 1200,img.height=1200);
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                    break;
                                     default:
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/1);
                                     break;
@@ -811,30 +690,6 @@
                                     break;
                                     case 'Leopard' :
                                         createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Solid+Gold' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Jelly+Grape' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Cyborg' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Jelly+Aqua' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Camouflage' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Tiger' :
-                                           createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Brass' :
-                                          createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Jelly+Blood' :
-                                          createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                     default:
                                         createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
