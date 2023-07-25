@@ -212,12 +212,16 @@
                             </select><br>
                     Style: <select name="bckg" id="bckg">
                                  <option value="" selected="selected">Select format first</option>
-                            </select>
-                            CiB&#128526;?  <input type="checkbox" name="cib" id="cib">  <br>     
+                            </select> <br>
+                            CiB&#128526;?*  <input type="checkbox" name="cib" id="cib">  <br>    
+                            Shirt&#128085;?*  <input type="checkbox" name="cccshirt" id="cccshirt">  <br> 
+
+                            <br><p style="font-size: 0.8rem">*Will not work great with all traits!</p>
+
                             <input type="submit" value="Submit" style="float:center"><br>
                 </form>
             
-                <p style="font-size: 0.8rem">Note: Refresh page if the wallpaper doesn't load</p>
+                
 
                 </h2>
                 <div id="embed01">
@@ -260,6 +264,7 @@
                         var formatN = getUserData('format');
                         var bckgN = getUserData('bckg');
                         var cibN = getUserData('cib');
+                        var cccshirtN = getUserData('cccshirt');
 
                         coverImg = new Image(); coverImg.crossOrigin = "Anonymous";
                         demoImg = new Image();  demoImg.crossOrigin = "Anonymous";
@@ -270,6 +275,7 @@
                         moonImg = new Image(); moonImg.crossOrigin = "Anonymous";
                         bdayImg = new Image(); bdayImg.crossOrigin = "Anonymous";
                         cibImg = new Image(); cibImg.crossOrigin = "Anonymous";
+                        cccshirtImg = new Image(); cccshirtImg.crossOrigin = "Anonymous";
                         gmImg = new Image(); gmImg.crossOrigin = "Anonymous";
                         gnImg = new Image(); gnImg.crossOrigin = "Anonymous";
                         //Hands
@@ -402,6 +408,7 @@
                         moonImg.src ='https://i.imgur.com/n83vzk0.png';
                         bdayImg.src ='https://i.imgur.com/AiKqNE7.png';
                         cibImg.src = 'https://i.imgur.com/a3Oi1Fw.png';
+                        cccshirtImg.src = 'https://i.imgur.com/DhFwklI.png';
                         gmImg.src = 'https://i.imgur.com/Bjh1f1H.png';
                         gnImg.src = 'https://i.imgur.com/53rx7AI.png';
                         silImg.src = 'https://i.imgur.com/KX35fET.png';
@@ -497,6 +504,11 @@
                                                 ctx.drawImage(cibImg, (canvas.width-img.width)/1.9, (canvas.height-img.height)/1.49,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width)/1.9, (canvas.height-img.height)/1.49,img.width,img.height);
+                                            break;
+                                        }
                                     break;
                                     case 'Framed' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2.18);
@@ -505,21 +517,37 @@
                                                 ctx.drawImage(cibImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2.18,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2.18,img.width,img.height);
+                                            break;
+                                        }
                                     break;
                                     case 'Moon' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/1.83, (canvas.height-img.height)/1.93);
-                                        ctx.drawImage(moonImg, (canvas.width-img.width)/30, (canvas.height-img.height)/30);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, (canvas.width-img.width)/1.83, (canvas.height-img.height)/1.93,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width)/1.83, (canvas.height-img.height)/1.93,img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(moonImg, (canvas.width-img.width)/30, (canvas.height-img.height)/30);
                                     break;
                                     case 'Banana' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
+                                            break;
+                                        }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
                                             break;
                                         }
                                     break;
@@ -530,213 +558,357 @@
                                                 ctx.drawImage(cibImg, 245,775,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, 245,775,img.width,img.height);
+                                            break;
+                                        }
                                     break;
                                     case 'Birthday' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/4.2);
-                                        ctx.drawImage(bdayImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, (canvas.width-img.width)/2,(canvas.height-img.height)/4.2,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width)/2, (canvas.height-img.height)/4.2,img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(bdayImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'GM' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
-                                        ctx.drawImage(gmImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(gmImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'GN' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2);
-                                        ctx.drawImage(gnImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(gnImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Silverback' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(silImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(silImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Wooden' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(wooImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(wooImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Snow+Monkey' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(snoImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(snoImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Brown' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(broImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(broImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Snub+Nosed' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(snuImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+
+                                        ctx.drawImage(snuImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Purple' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(purImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(purImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Blue' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(bluImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(bluImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Pink' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(pinImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(pinImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Black' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(blaImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(blaImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Rainbow+Swirl' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(raiImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                                 ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(raiImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Green' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(greImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(greImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Leopard' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(leoImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(leoImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Solid+Gold' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(solImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(solImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Jelly+Grape' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(graImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(graImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Cyborg' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(cybImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(cybImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Jelly+Blood' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(bloImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(bloImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Jelly+Aqua' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(aquImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(aquImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Camouflage' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(camImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(camImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Tiger' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(tigImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(tigImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'Brass' : 
                                         ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        ctx.drawImage(braImg, 0, 0, img.width = 1200,img.height=1200);
+                                        
                                         switch (cibN){
                                             case 'on' :
                                             ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
+                                            break;
+                                        }
+                                        ctx.drawImage(braImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     default:
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/1);
