@@ -129,27 +129,8 @@
             "GM": [],
             "GN": []
         },
-        "Mug": {
-            "Solid Gold": [],
-            "Jelly Grape": [],
-            "Cyborg": [],
-            "Rainbow Swirl": [],
-            "Jelly Blood": [],
-            "Jelly Aqua": [],
-            "Camouflage": [],
-            "Wooden": [],
-            "Tiger": [],
-            "Brass": [],
-            "Leopard": [],
-            "Silverback": [],
-            "Snub Nosed": [],
-            "Snow Monkey": [],
-            "Purple": [],
-            "Pink": [],
-            "Green": [],
-            "Blue": [],
-            "Black": [],
-            "Brown": []
+        "PFP": {
+            "Clean": []
         }
         
         }
@@ -214,10 +195,12 @@
                     Style: <select name="bckg" id="bckg">
                                  <option value="" selected="selected">Select format first</option>
                             </select> <br>
-                            CiB Shades? <input type="checkbox" name="cib" id="cib">  <br>    
+                            
+                            CCC Mug?  <input type="checkbox" name="cccmug" id="cccmug">  <br>     
                             CCC Shirt?  <input type="checkbox" name="cccshirt" id="cccshirt">  <br> 
-                            Cronos Cap?*  <input type="checkbox" name="ccccap" id="ccccap">  <br>
                             CCC Beanie?*  <input type="checkbox" name="cccbean" id="cccbean">  <br> 
+                            Cronos Cap?*  <input type="checkbox" name="ccccap" id="ccccap">  <br>
+                            CiB Shades? <input type="checkbox" name="cib" id="cib">  <br>
 
                             <br><p style="font-size: 0.8rem">Note: Will not work great with all traits!</p> 
                             <br><p style="font-size: 0.8rem">*Choose one of the two!</p>
@@ -271,7 +254,107 @@
                         var cccshirtN = getUserData('cccshirt');
                         var ccccapN = getUserData('ccccap');
                         var cccbeanN = getUserData('cccbean');
+                        var cccmugN = getUserData('cccmug');
 
+                        // Replace this URL with the actual JSON URL you want to fetch data from
+                        const jsonURL = 'https://z54j4hi4xbddc4cymeywsffxauodi73r5nmadz2rbkqt4y7bhcba.arweave.net/z3ieHRy4RjFwWGExaRS3BRw0f3HrWAHnUQqhPmPhOII/'+chimpN+'.json';
+                        
+                        // Declare a variable to store the body trait value
+                        let bodyTraitValue;
+
+                        // Function to fetch the JSON data and extract the "Body" attribute value
+                        async function fetchData() {
+                        try {
+                            const response = await fetch(jsonURL);
+                            if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                            }
+
+                            const data = await response.json();
+                            
+                            // Search for the "Body" trait in the "attributes" array
+                            const bodyTrait = data.attributes.find(attr => attr.trait_type === "Body");
+
+                            if (bodyTrait) {
+                            bodyTraitValue = bodyTrait.value;
+                            console.log('Found "trait_type": "Body" with value:', bodyTraitValue);
+                            // You can use 'bodyTraitValue' as needed
+                            // Update the span element with the value
+                            const bodyTraitValueSpan = document.getElementById('bodyTraitValueSpan');
+                            bodyTraitValueSpan.textContent = bodyTraitValue;
+                            // Switch-case statement based on the "Body" attribute value
+                            switch (bodyTraitValue) {
+                                case 'silverback':
+                                    bodyImg.src = 'https://i.imgur.com/KX35fET.png';
+                                break;
+                                case 'wooden':
+                                    bodyImg.src = 'https://i.imgur.com/ofRWnCa.png';
+                                break;
+                                case 'brown':
+                                    bodyImg.src = 'https://i.imgur.com/YBRaxEq.png';
+                                break;
+                                case 'snub nosed':
+                                    bodyImg.src = 'https://i.imgur.com/FKfJTQB.png';
+                                break;
+                                case 'purple':
+                                    bodyImg.src = 'https://i.imgur.com/DPKllCK.png';
+                                break;
+                                case 'blue':
+                                    bodyImg.src = 'https://i.imgur.com/CF2M6yC.png';
+                                break;
+                                case 'pink':
+                                    bodyImg.src = 'https://i.imgur.com/feMw4J9.png';
+                                break;
+                                case 'black':
+                                    bodyImg.src = 'https://i.imgur.com/JTkHZR3.png';
+                                break;
+                                case 'rainbow swirl':
+                                    bodyImg.src = 'https://i.imgur.com/ZLJHOsR.png';
+                                break;
+                                case 'green':
+                                    bodyImg.src = 'https://i.imgur.com/P5cxs8a.png';
+                                break;
+                                case 'leopard':
+                                    bodyImg.src = 'https://i.imgur.com/A8CkVHi.png';
+                                break;
+                                case 'solid gold':
+                                    bodyImg.src = 'https://i.imgur.com/guSOban.png';
+                                break;
+                                case 'jelly grape':
+                                    bodyImg.src = 'https://i.imgur.com/X26Yg75.png';
+                                break;
+                                case 'cyborg':
+                                    bodyImg.src = 'https://i.imgur.com/Sovo1Wc.png';
+                                break;
+                                case 'jelly aqua':
+                                    bodyImg.src = 'https://i.imgur.com/bm1aHDY.png';
+                                break;
+                                case 'jelly blood':
+                                    bodyImg.src = 'https://i.imgur.com/cnGBrRw.png';
+                                break;
+                                case 'camouflage':
+                                    bodyImg.src = 'https://i.imgur.com/6e5e6JZ.png';
+                                break;
+                                case 'tiger':
+                                    bodyImg.src = 'https://i.imgur.com/Tf7udHR.png';
+                                break;
+                                case 'brass':
+                                    bodyImg.src = 'https://i.imgur.com/gnMPbBO.png';
+                                break;
+                                default:
+                                    console.log('No hand chosen'); 
+                            }
+                            } else {
+                            console.log('No "Body" trait found in the attributes.');
+                            }
+                        } catch (error) {
+                            console.error('Error:', error);
+                        }
+                        }
+                        // Call the fetchData function to initiate the process
+                        fetchData();
+                        
+                       
                         coverImg = new Image(); coverImg.crossOrigin = "Anonymous";
                         demoImg = new Image();  demoImg.crossOrigin = "Anonymous";
                         demoImg.addEventListener('load', () => {
@@ -286,28 +369,13 @@
                         cccbeanImg = new Image(); cccbeanImg.crossOrigin = "Anonymous";
                         gmImg = new Image(); gmImg.crossOrigin = "Anonymous";
                         gnImg = new Image(); gnImg.crossOrigin = "Anonymous";
-                        //Hands
-                        silImg = new Image(); silImg.crossOrigin = "Anonymous";
-                        wooImg = new Image(); wooImg.crossOrigin = "Anonymous";
-                        snoImg = new Image(); snoImg.crossOrigin = "Anonymous";
-                        broImg = new Image(); broImg.crossOrigin = "Anonymous";
-                        snuImg = new Image(); snuImg.crossOrigin = "Anonymous";
-                        purImg = new Image(); purImg.crossOrigin = "Anonymous";
-                        bluImg = new Image(); bluImg.crossOrigin = "Anonymous";
-                        pinImg = new Image(); pinImg.crossOrigin = "Anonymous";
-                        blaImg = new Image(); blaImg.crossOrigin = "Anonymous";
-                        raiImg = new Image(); raiImg.crossOrigin = "Anonymous";
-                        greImg = new Image(); greImg.crossOrigin = "Anonymous";
-                        leoImg = new Image(); leoImg.crossOrigin = "Anonymous";
-                        solImg = new Image(); solImg.crossOrigin = "Anonymous";
-                        graImg = new Image(); graImg.crossOrigin = "Anonymous";
-                        cybImg = new Image(); cybImg.crossOrigin = "Anonymous";
-                        aquImg = new Image(); aquImg.crossOrigin = "Anonymous";
-                        bloImg = new Image(); bloImg.crossOrigin = "Anonymous";
-                        camImg = new Image(); camImg.crossOrigin = "Anonymous";
-                        tigImg = new Image(); tigImg.crossOrigin = "Anonymous";
-                        braImg = new Image(); braImg.crossOrigin = "Anonymous";
-
+                        //body value for hand generation
+                        bodyImg = new Image(); bodyImg.crossOrigin = "Anonymous";
+                        bodyImg.addEventListener('load', () => {
+                        // Image loaded, append it to the DOM
+                        //document.body.appendChild();
+                        });
+                        
                         
                         
                             
@@ -338,65 +406,42 @@
                                         case 'GN' :
                                             createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Silverback' :
+                                        default:
                                             createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Wooden' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                    }
+                                
+                            
+
+
+
+                            
+                        };
+                                bodyImg.onload = function() {
+                                switch (bckgN) {
+                                        case 'Nature' :
+                                            createImageBitmap(demoImg, {resizeWidth: 390, resizeHeight: 390, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Snow+Monkey' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        case 'Framed' :
+                                            createImageBitmap(demoImg, {resizeWidth: 490, resizeHeight: 490, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Brown' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        case 'Moon' :
+                                            createImageBitmap(demoImg, {resizeWidth: 200, resizeHeight: 200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Snub+Nosed' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        case 'Banana' :
+                                            createImageBitmap(demoImg, {resizeWidth: 380, resizeHeight: 380, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Purple' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        case 'Japan' :
+                                            createImageBitmap(demoImg, {resizeWidth: 410, resizeHeight: 410, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Blue' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        case 'Birthday' :
+                                            createImageBitmap(demoImg, {resizeWidth: 670, resizeHeight: 670, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Pink' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        case 'GM' :
+                                            createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
-                                        case 'Black' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Rainbow+Swirl' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Green' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Leopard' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Solid+Gold' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Jelly+Grape' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Cyborg' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Jelly+Aqua' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Camouflage' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Tiger' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Brass' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                        break;
-                                        case 'Jelly+Blood' :
-                                            createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        case 'GN' :
+                                            createImageBitmap(demoImg, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                         break;
                                         default:
                                             createImageBitmap(demoImg, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
@@ -421,33 +466,35 @@
                         cccbeanImg.src = 'https://i.imgur.com/3UnMAe2.png';
                         gmImg.src = 'https://i.imgur.com/Bjh1f1H.png';
                         gnImg.src = 'https://i.imgur.com/53rx7AI.png';
-                        silImg.src = 'https://i.imgur.com/KX35fET.png';
-                        wooImg.src = 'https://i.imgur.com/ofRWnCa.png';
-                        snoImg.src = 'https://i.imgur.com/MQOLibU.png';
-                        broImg.src = 'https://i.imgur.com/YBRaxEq.png';
-                        snuImg.src = 'https://i.imgur.com/FKfJTQB.png';
-                        purImg.src = 'https://i.imgur.com/DPKllCK.png';
-                        bluImg.src = 'https://i.imgur.com/CF2M6yC.png';
-                        pinImg.src = 'https://i.imgur.com/feMw4J9.png';
-                        blaImg.src = 'https://i.imgur.com/JTkHZR3.png';
-                        raiImg.src = 'https://i.imgur.com/ZLJHOsR.png';
-                        greImg.src = 'https://i.imgur.com/P5cxs8a.png';
-                        leoImg.src = 'https://i.imgur.com/A8CkVHi.png';
-                        solImg.src = 'https://i.imgur.com/guSOban.png'; 
-                        graImg.src = 'https://i.imgur.com/X26Yg75.png';
-                        cybImg.src = 'https://i.imgur.com/Sovo1Wc.png'; 
-                        aquImg.src = 'https://i.imgur.com/bm1aHDY.png'; 
-                        bloImg.src = 'https://i.imgur.com/cnGBrRw.png'; 
-                        camImg.src = 'https://i.imgur.com/6e5e6JZ.png'; 
-                        tigImg.src = 'https://i.imgur.com/Tf7udHR.png'; 
-                        braImg.src = 'https://i.imgur.com/gnMPbBO.png';
+                        // silImg.src = 'https://i.imgur.com/KX35fET.png';
+                        // wooImg.src = 'https://i.imgur.com/ofRWnCa.png';
+                        // snoImg.src = 'https://i.imgur.com/MQOLibU.png';
+                        // broImg.src = 'https://i.imgur.com/YBRaxEq.png';
+                        // snuImg.src = 'https://i.imgur.com/FKfJTQB.png';
+                        // purImg.src = 'https://i.imgur.com/DPKllCK.png';
+                        // bluImg.src = 'https://i.imgur.com/CF2M6yC.png';
+                        // pinImg.src = 'https://i.imgur.com/feMw4J9.png';
+                        // blaImg.src = 'https://i.imgur.com/JTkHZR3.png';
+                        // raiImg.src = 'https://i.imgur.com/ZLJHOsR.png';
+                        // greImg.src = 'https://i.imgur.com/P5cxs8a.png';
+                        // leoImg.src = 'https://i.imgur.com/A8CkVHi.png';
+                        // solImg.src = 'https://i.imgur.com/guSOban.png'; 
+                        // graImg.src = 'https://i.imgur.com/X26Yg75.png';
+                        // cybImg.src = 'https://i.imgur.com/Sovo1Wc.png'; 
+                        // aquImg.src = 'https://i.imgur.com/bm1aHDY.png'; 
+                        // bloImg.src = 'https://i.imgur.com/cnGBrRw.png'; 
+                        // camImg.src = 'https://i.imgur.com/6e5e6JZ.png'; 
+                        // tigImg.src = 'https://i.imgur.com/Tf7udHR.png'; 
+                        // braImg.src = 'https://i.imgur.com/gnMPbBO.png';
+                       
+                        
 
                         switch (formatN) {
-                            case 'Mug':
-                                canvas.width = '1200';
-                                canvas.height = '1200';
+                            // case 'Mug':
+                            //     canvas.width = '1200';
+                            //     canvas.height = '1200';
                                 
-                                break;
+                            //     break;
                             case 'Card':
                                 canvas.width = '1200';
                                 canvas.height = '1200';
@@ -497,7 +544,10 @@
                                     default:
                                         break;
                                 }
-                                break;    
+                                break;
+                            case 'PFP':
+                                canvas.width = '1200';
+                                canvas.height = '1200';        
                             default:
                                 break;
                             }
@@ -529,6 +579,11 @@
                                                 ctx.drawImage(cccbeanImg, (canvas.width-img.width)/1.9, (canvas.height-img.height)/1.49,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg, (canvas.width-img.width)/1.9, (canvas.height-img.height)/1.49,img.width,img.height);
+                                            break;
+                                        }
                                     break;
                                     case 'Framed' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/2.18);
@@ -550,6 +605,11 @@
                                         switch (cccbeanN){
                                             case 'on' :
                                                 ctx.drawImage(cccbeanImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2.18,img.width,img.height);
+                                            break;
+                                        }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2.18,img.width,img.height);
                                             break;
                                         }
                                     break;
@@ -576,6 +636,11 @@
                                                 ctx.drawImage(cccbeanImg, (canvas.width-img.width)/1.83, (canvas.height-img.height)/1.93,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg, (canvas.width-img.width)/1.83, (canvas.height-img.height)/1.93,img.width,img.height);
+                                            break;
+                                        }
                                         ctx.drawImage(moonImg, (canvas.width-img.width)/30, (canvas.height-img.height)/30);
                                     break;
                                     case 'Banana' : 
@@ -598,6 +663,11 @@
                                         switch (cccbeanN){
                                             case 'on' :
                                                 ctx.drawImage(cccbeanImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
+                                            break;
+                                        }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
                                             break;
                                         }
                                     break;
@@ -623,6 +693,11 @@
                                                 ctx.drawImage(cccbeanImg, 245,775,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg, 245,775,img.width,img.height);
+                                            break;
+                                        }
                                     break;
                                     case 'Birthday' : 
                                         ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/4.2);
@@ -645,6 +720,11 @@
                                         switch (cccbeanN){
                                             case 'on' :
                                                 ctx.drawImage(cccbeanImg, (canvas.width-img.width)/2, (canvas.height-img.height)/4.2,img.width,img.height);
+                                            break;
+                                        }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg, (canvas.width-img.width)/2, (canvas.height-img.height)/4.2,img.width,img.height);
                                             break;
                                         }
                                         ctx.drawImage(bdayImg, 0, 0, img.width = 1200,img.height=1200);
@@ -672,6 +752,11 @@
                                                 ctx.drawImage(cccbeanImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
+                                            break;
+                                        }
                                         ctx.drawImage(gmImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
                                     case 'GN' : 
@@ -697,510 +782,40 @@
                                                 ctx.drawImage(cccbeanImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
                                             break;
                                         }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg, (canvas.width-img.width)/2, (canvas.height-img.height)/2,img.width,img.height);
+                                            break;
+                                        }
                                         ctx.drawImage(gnImg, 0, 0, img.width = 1200,img.height=1200);
                                     break;
-                                    case 'Silverback' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(silImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Wooden' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(wooImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Snow+Monkey' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(snoImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Brown' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(broImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Snub+Nosed' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(snuImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Purple' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(purImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Blue' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(bluImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Pink' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(pinImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Black' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(blaImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Rainbow+Swirl' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(raiImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Green' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(greImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Leopard' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(leoImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Solid+Gold' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(solImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Jelly+Grape' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(graImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Cyborg' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(cybImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Jelly+Blood' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(bloImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Jelly+Aqua' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(aquImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Camouflage' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(camImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Tiger' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(tigImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
-                                    case 'Brass' : 
-                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
-                                        
-                                        switch (cibN){
-                                            case 'on' :
-                                            ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccshirtN){
-                                            case 'on' :
-                                                ctx.drawImage(cccshirtImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (ccccapN){
-                                            case 'on' :
-                                                ctx.drawImage(ccccapImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        switch (cccbeanN){
-                                            case 'on' :
-                                                ctx.drawImage(cccbeanImg, (canvas.width-img.width), (canvas.height-img.height),img.width,img.height);
-                                            break;
-                                        }
-                                        ctx.drawImage(braImg, 0, 0, img.width = 1200,img.height=1200);
-                                    break;
                                     default:
-                                        ctx.drawImage(img, (canvas.width-img.width)/2, (canvas.height-img.height)/1);
+                                        ctx.drawImage(img, canvas.width-img.width, canvas.height-img.height);
+                                        switch (cibN){
+                                            case 'on' :
+                                                ctx.drawImage(cibImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                        switch (cccshirtN){
+                                            case 'on' :
+                                                ctx.drawImage(cccshirtImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                        switch (ccccapN){
+                                            case 'on' :
+                                                ctx.drawImage(ccccapImg, canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                        switch (cccbeanN){
+                                            case 'on' :
+                                                ctx.drawImage(cccbeanImg,  canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
+                                        switch (cccmugN){
+                                            case 'on' :
+                                                ctx.drawImage(bodyImg,  canvas.width-img.width, canvas.height-img.height,img.width,img.height);
+                                            break;
+                                        }
                                     break;
                                  }
                                 
@@ -1237,68 +852,8 @@
                                     case 'GN' :
                                         createImageBitmap(img, {resizeWidth: 590, resizeHeight: 590, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
-                                    case 'Silverback' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Wooden' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Snow+Monkey' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Brown' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Snub+Nosed' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Purple' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Blue' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Pink' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Black' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Rainbow+Swirl' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Green' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Leopard' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Solid+Gold' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Jelly+Grape' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Cyborg' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Jelly+Aqua' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Camouflage' :
-                                        createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Tiger' :
-                                           createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Brass' :
-                                          createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
-                                    case 'Jelly+Blood' :
-                                          createImageBitmap(img, {resizeWidth: 1200, resizeHeight: 1200, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
-                                    break;
                                     default:
-                                        createImageBitmap(img, {resizeWidth: 850, resizeHeight: 850, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
+                                        createImageBitmap(img, {resizeWidth: 1000, resizeHeight: 1000, resizeQuality: 'high'}).then(imageBitmap => drawFungiblePFP(imageBitmap));
                                     break;
                                  }
                                 }
@@ -1347,7 +902,11 @@
                     <h2 id="text07" style="color: #fdc657">
                         <br>
                         
-                        <span style="color: #ffffff">Chimp ID: </span> <span id="chimpN" style="font-size: 1.5rem"> </span><br> <span style="color: #ffffff">Format:</span> <span id="formatN"style="font-size: 1.5rem"></span><br><span style="color: #ffffff">Style:</span>  <span id="bckgN"style="font-size: 1.5rem"></span><br>
+                        <span style="color: #ffffff">Chimp ID: </span> <span id="chimpN" style="font-size: 1.5rem"> </span><br>
+                        <span style="color: #ffffff">Format:</span> <span id="formatN"style="font-size: 1.5rem"></span><br>
+                        <span style="color: #ffffff">Style:</span>  <span id="bckgN"style="font-size: 1.5rem"></span><br>
+                        <span style="color: #ffffff">Body:</span>  <span id="bodyTraitValueSpan"style="font-size: 1.5rem"></span><br>
+                        
                     </h2>
                         <script>
                             document.getElementById("chimpN").innerHTML = chimpN;
@@ -1386,7 +945,6 @@
                     <span>I am not a web dev or coder...yet.</span><br> 
                     <span>This a demo site for me to practice HTML</span><br>
                     <span>If you run into issues DM on Twitter</span><br>
-                    <span>Credits to <mark><a href="https://twitter.com/0xSoftie">0xSoftie</a></mark> for the idea</span><br> 
                     </h2>
                     <ul id="buttons01" class="buttons" style="opacity: 1; transform: none;">
                         <li>
