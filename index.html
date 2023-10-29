@@ -112,6 +112,23 @@
                 -webkit-transform:scale(2);
                 transform:scale(2);
                         }  
+                        
+            .img-btn img{
+            width:100px;
+            height:100px;
+            }
+            .img-btn > input{
+            display:none
+            }
+            .img-btn > img{
+            cursor:pointer;
+            border:2px solid transparent;
+            background-color: #5f5e5e;
+            }
+            .img-btn > input:checked + img{
+            border-color: rgb(255, 255, 255);
+            border-radius:10px;
+            }
     </style>
     <script type="text/javascript" src="chrome-extension://fnnegphlobjdpkhecapkijjdkgcjhkib/inject-script.js" id="one-x-extension" data-extension-id="fnnegphlobjdpkhecapkijjdkgcjhkib"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -137,6 +154,7 @@
         window.onload = function() {
         var formatSel = document.getElementById("format");
         var bckgSel = document.getElementById("bckg");
+
         for (var x in subjectObject) {
             formatSel.options[formatSel.options.length] = new Option(x, x);
         }
@@ -151,6 +169,7 @@
         }
         
         </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .btn {
@@ -187,6 +206,8 @@
                    
                 </h2>
                 <form name="form1" id="form1">
+                    
+                    <span>Input:</span><br><br>
                     <label for="chimp">Chimp ID:</label>
                         <input type="number" id="chimp" name="chimp" size="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" required><br>
                     Format: <select name="format" id="format">
@@ -195,12 +216,68 @@
                     Style: <select name="bckg" id="bckg">
                                  <option value="" selected="selected">Select format first</option>
                             </select> <br>
+                     <span>Addons:</span><br><br>     
+                    <!-- Head: <select name="addHead" id="addHead">
+                                <option value="CCC Beanie" selected="selected">Pick option</option>
+                           </select> <br> 
+                    Body: <select name="addBody" id="addBody">
+                            <option value="" selected="selected">Pick option</option>
+                       </select> <br>
+                    Extra: <select name="addExtra" id="addExtra">
+                        <option value="" selected="selected">Pick option</option>
+                   </select> <br>            -->
+                            <span>Head:</span><br>
+                            <!-- <select id="addHead">
+                                <option value="default">Pick option</option>
+                                <option value="cccbean">CCC Beanie</option>
+                                <option value="ccccap">Cronos Cap</option>
+                            </select> <br> -->
+                            <label class="img-btn">
+                                <input type="checkbox" name="CronosCap" >
+                                <img src='https://i.imgur.com/Mfv1jiJ.png' alt="Cronos Cap">
+                            </label>
+                    
+                            <label class="img-btn">
+                                <input type="checkbox" name="CCCBeanie">
+                                <img src="https://i.imgur.com/3UnMAe2.png" alt="CCC Beanie" >
+                           </label>
+                            <br>
+                        
+                            <label for="addBody">Body:</label><br>
+                            <!-- <select id="addBody">
+                                <option value="default">Pick option</option>
+                                <option value="cccshirt">CCC Shirt</option>
+                            </select> <br> -->
+                            <label class="img-btn">
+                                <input type="checkbox" name="CCCShirt" >
+                                <img src='https://i.imgur.com/DhFwklI.png' alt="CCC Shirt">
+                            </label>
+                            <br>
                             
-                            CCC Mug?  <input type="checkbox" name="cccmug" id="cccmug">  <br>     
+                            
+                            <br>
+                        
+                            <label for="addExtra">Extra:</label><br>
+                            <!-- <select id="dropdown3">
+                                <option value="default">Pick option</option>
+                                <option value="cccmug">CCC Mug</option>
+                                <option value="cib">CiB Shades</option>
+                            </select> <br> -->
+                            <label class="img-btn">
+                                <input type="checkbox" name="CiB" >
+                                <img src='https://i.imgur.com/a3Oi1Fw.png' alt="CiB Shades">
+                            </label>
+                            <label class="img-btn">
+                                <input type="checkbox" name="Mug" >
+                                <img src='https://i.imgur.com/3NEa1WN.png' alt="CCC Mug">
+                            </label>
+                            <br> 
+                             
+                            <!-- CCC Mug?  <input type="checkbox" name="cccmug" id="cccmug">  <br>     
                             CCC Shirt?  <input type="checkbox" name="cccshirt" id="cccshirt">  <br> 
                             CCC Beanie?*  <input type="checkbox" name="cccbean" id="cccbean">  <br> 
                             Cronos Cap?*  <input type="checkbox" name="ccccap" id="ccccap">  <br>
-                            CiB Shades? <input type="checkbox" name="cib" id="cib">  <br>
+                            CiB Shades? <input type="checkbox" name="cib" id="cib">  <br> -->
 
                             <br><p style="font-size: 0.8rem">Note: Will not work great with all traits!</p> 
                             <br><p style="font-size: 0.8rem">*Choose one of the two!</p>
@@ -250,11 +327,19 @@
                         var chimpN = getUserData('chimp');
                         var formatN = getUserData('format');
                         var bckgN = getUserData('bckg');
-                        var cibN = getUserData('cib');
-                        var cccshirtN = getUserData('cccshirt');
-                        var ccccapN = getUserData('ccccap');
-                        var cccbeanN = getUserData('cccbean');
-                        var cccmugN = getUserData('cccmug');
+                        var addHeadN = getUserData('addHead');
+                        var addBodyN = getUserData('addBody');
+                        var addExtraN = getUserData('addExtra');
+                        var cibN = getUserData('CiB');
+                        var cccshirtN = getUserData('CCCShirt');
+                        var ccccapN = getUserData('CronosCap');
+                        var cccbeanN = getUserData('CCCBeanie');
+                        var cccmugN = getUserData('Mug');
+                        console.log('Found "Head": Cronos Cap with value:', ccccapN);
+                        console.log('Found "Extra": CiB with value:', cibN);
+                        console.log('Found "Extra": Mug with value:', cccmugN);
+                        console.log('Found "Body": CCC Shirt with value:', cccshirtN);
+                        console.log('Found "Head": CCC Beanie with value:', cccbeanN);
 
                         // Replace this URL with the actual JSON URL you want to fetch data from
                         const jsonURL = 'https://z54j4hi4xbddc4cymeywsffxauodi73r5nmadz2rbkqt4y7bhcba.arweave.net/z3ieHRy4RjFwWGExaRS3BRw0f3HrWAHnUQqhPmPhOII/'+chimpN+'.json';
@@ -377,6 +462,10 @@
                         bodyImg.addEventListener('load', () => {
                         // Image loaded, append it to the DOM
                         //document.body.appendChild();
+                        //Addon choice
+                        addHeadImg = new Image(); addHeadImg.crossOrigin = "Anonymous";
+                        addBodyImg = new Image(); addBodyImg.crossOrigin = "Anonymous";
+                        addExtraImg = new Image(); addExtraImg.crossOrigin = "Anonymous";
                         });
                         
                         
@@ -554,6 +643,14 @@
                             default:
                                 break;
                             }
+                        switch (addHeadN) {
+                            case 'CCC Beanie' :
+                                addHeadImg.src = 'https://i.imgur.com/3UnMAe2.png';
+                            break;
+                            case 'Cronos Cap' :
+                                addHeadImg.src = 'https://i.imgur.com/Mfv1jiJ.png';
+                            break;        
+                        }    
                         
                             
                         drawFungiblePFP = function(img) {
